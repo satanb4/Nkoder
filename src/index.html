@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Audio Downmixer</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="app">
+      <header class="header">
+        <h1>5.1/7.1 → Stereo Downmixer</h1>
+        <p class="subtitle">Professional audio downmix using FFmpeg</p>
+      </header>
+
+      <main class="main">
+        <section class="card">
+          <h2>1. Select Video</h2>
+          <div class="row">
+            <input
+              id="inputFile"
+              type="text"
+              placeholder="No file selected"
+              readonly
+            />
+            <button id="chooseInputBtn" class="btn btn-primary">Choose File</button>
+          </div>
+        </section>
+
+        <section class="card">
+          <h2>2. Output Location</h2>
+          <div class="row">
+            <input
+              id="outputFile"
+              type="text"
+              placeholder="Output path will be suggested"
+              readonly
+            />
+            <button id="chooseOutputBtn" class="btn">Choose…</button>
+          </div>
+          <p class="hint">
+            Output will be AAC stereo, 44.1 kHz, 256 kbps.
+          </p>
+        </section>
+
+        <section class="card">
+          <h2>3. Convert</h2>
+          <button id="convertBtn" class="btn btn-accent" disabled>
+            Start Conversion
+          </button>
+
+          <div id="statusBox" class="status-box hidden">
+            <div class="status-line">
+              <span class="status-label">Status:</span>
+              <span id="statusText">Idle</span>
+            </div>
+            <div class="logs" id="logs"></div>
+          </div>
+        </section>
+      </main>
+
+      <footer class="footer">
+        <p>Built with Tauri + Rust + FFmpeg</p>
+      </footer>
+    </div>
+
+    <script type="module" src="main.ts"></script>
+  </body>
+</html>
